@@ -1,0 +1,89 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+ }
+ 
+ body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: black;
+    min-height: 100vh;
+ }
+ 
+ a {
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 20px 50px;
+    width: 200px;
+    overflow: hidden;
+ }
+ 
+ a span {
+    z-index: 1;
+    position: relative;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 8px;
+ }
+ 
+ a.liquid {
+    position: relative;
+    /* Change from absolute to relative */
+    overflow: hidden;
+    /* Ensure overflow is hidden */
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+ }
+ 
+ .liquid div {
+    position: absolute;
+    left: 0;
+    top: -80px;
+    width: 200px;
+    height: 200px;
+    background: #4973ff;
+    /* Fixed background property */
+    transition: 0.10s;
+    z-index:0;
+    /* Ensure it sits below the text */
+ }
+ 
+ a:hover .liquid div {
+    top: -120px;
+    /* Adjust this for the hover effect */
+ }
+ 
+ .liquid div:before,
+ .liquid div:after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -75%);
+ }
+ 
+ .liquid div:before {
+    border-radius: 45%;
+    background: rgba(20, 20, 20, 1);
+    animation: animate 5s linear infinite;
+ }
+ 
+ .liquid div:after {
+    border-radius: 40%;
+    background: rgba(20, 20, 20, 0.5);
+    animation: animate 10s linear infinite;
+ }
+ 
+ @keyframes animate {
+    0% {
+       transform: translate(-50%, -75%) rotate(0deg);
+    }
+ 
+    100% {
+       transform: translate(-50%, -75%) rotate(360deg);
+    }
+ }
